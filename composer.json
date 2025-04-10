@@ -1,0 +1,73 @@
+{
+    "name": "graywings/docker-client",
+    "description": "Docker API client for PHP.",
+    "version": "0.0.1",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taira Terashima",
+            "email": "taira.terashima@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp": true
+        }
+    },
+    "scripts": {
+        "build": [
+            "@test:no-report",
+            "@lint"
+        ],
+        "test": "phpunit --coverage-html coverage/",
+        "test:no-report": "phpunit",
+        "test:all": "phpunit --testsuite unit,feature,integration --coverage-html coverage/",
+        "test:on-ci": "phpunit --testsuite unit,feature",
+        "lint": [
+            "@lint:phpcbf",
+            "@lint:phpstan",
+            "@lint:phpcs"
+        ],
+        "lint:phpstan": "phpstan analyse src/ --level 8",
+        "lint:phpcs": "phpcs",
+        "lint:phpcbf": "phpcbf",
+        "post-install-cmd": [
+            "vendor/bin/captainhook install --force"
+        ],
+        "post-update-cmd": [
+            "vendor/bin/captainhook install --force"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Graywings\\DockerClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Graywings\\DockerClient\\Tests\\Unit\\": "tests/unit",
+            "Graywings\\DockerClient\\Tests\\Feature\\": "tests/feature",
+            "Graywings\\DockerClient\\Tests\\Integration\\": "tests/integration",
+            "Graywings\\DockerClient\\Tests\\Mock\\": "tests/mock"
+        }
+    },
+    "require": {
+        "php": ">=8.4",
+        "ext-bcmath": "*",
+        "ext-curl": "*",
+        "ext-gmp": "*",
+        "guzzlehttp/guzzle": "^7.9",
+        "ramsey/collection": "^2.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "squizlabs/php_codesniffer": "^3.12",
+        "phpunit/phpunit": "^12.1",
+        "doctrine/coding-standard": "^13.0",
+        "slevomat/coding-standard": "^8.16",
+        "php-di/php-di": "^7.0",
+        "captainhook/captainhook": "^5.25"
+    }
+}

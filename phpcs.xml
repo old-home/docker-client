@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset>
+  <arg name="extensions" value="php" />
+  <rule ref="PSR1" />
+  <rule ref="PSR12" />
+  <rule ref="vendor/doctrine/coding-standard/lib/Doctrine/ruleset.xml">
+    <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps" />
+    <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment" />
+  </rule>
+  <rule ref="SlevomatCodingStandard.Commenting.DisallowOneLinePropertyDocComment" />
+  <rule ref="SlevomatCodingStandard.Classes.RequireAbstractOrFinal" />
+  <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" />
+  <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
+    <properties>
+      <property name="linesCountBetweenDifferentAnnotationsTypes" value="1"/>
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+    <properties>
+      <property name="groups" type="array">
+        <element value="uses"/>
+        <element value="enum cases"/>
+        <element value="constants"/>
+        <element value="properties"/>
+        <element value="constructor"/>
+        <element value="methods"/>
+      </property>
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
+    <properties>
+      <property name="enableObjectTypeHint" value="true"/>
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+    <properties>
+      <property name="enableNativeTypeHint" value="true"/>
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.Commenting.EmptyComment" />
+
+  <arg value="ps" />
+  <file>src</file>
+  <file>tests</file>
+</ruleset>

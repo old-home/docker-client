@@ -1,0 +1,43 @@
+{
+    "containers": [
+        {
+            "Id": "container1",
+            "Names": ["/test-container-1"],
+            "Image": "nginx:latest",
+            "ImageID": "sha256:123456789",
+            "Command": "nginx -g 'daemon off;'",
+            "Created": 1617123456,
+            "Status": "running",
+            "Ports": [
+                {
+                    "IP": "0.0.0.0",
+                    "PrivatePort": 80,
+                    "PublicPort": 8080,
+                    "Type": "tcp"
+                }
+            ],
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers",
+                "environment": "test"
+            },
+            "SizeRw": 1024,
+            "SizeRootFs": 102400
+        },
+        {
+            "Id": "container2",
+            "Names": ["/test-container-2"],
+            "Image": "redis:latest",
+            "ImageID": "sha256:987654321",
+            "Command": "redis-server",
+            "Created": 1617123457,
+            "Status": "exited",
+            "Ports": [],
+            "Labels": {
+                "maintainer": "Redis Docker Maintainers",
+                "environment": "test"
+            },
+            "SizeRw": null,
+            "SizeRootFs": null
+        }
+    ]
+}

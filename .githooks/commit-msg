@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# installed by CaptainHook 5.25.2
+
+INTERACTIVE="--no-interaction"
+
+# if necessary read original hook stdIn to pass it in as --input option
+input=""
+
+if [ -t 1 ]; then
+    # If we're in a terminal, redirect stdout and stderr to /dev/tty and
+    # read stdin from /dev/tty. Allow interactive mode for CaptainHook.
+    exec >/dev/tty 2>/dev/tty </dev/tty
+    INTERACTIVE=""
+fi
+
+vendor/bin/captainhook $INTERACTIVE --configuration=captainhook.json --bootstrap=vendor/autoload.php --input="$input" hook:commit-msg "$@"
