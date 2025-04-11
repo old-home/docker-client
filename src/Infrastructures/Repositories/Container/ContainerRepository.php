@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Graywings\DockerClient\Repositories\Container;
+namespace Graywings\DockerClient\Infrastructures\Repositories\Container;
 
 use Graywings\DockerClient\Domain\Container\Containers;
 use Graywings\DockerClient\Domain\Container\IContainerRepository;
 use Graywings\DockerClient\Exceptions\Exception;
-use Graywings\DockerClient\Repositories\HttpRepository;
+use Graywings\DockerClient\Infrastructures\Repositories\HttpRepository;
 use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
 

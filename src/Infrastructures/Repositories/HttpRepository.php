@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Graywings\DockerClient\Repositories;
+namespace Graywings\DockerClient\Infrastructures\Repositories;
 
 use GuzzleHttp\Client;
 

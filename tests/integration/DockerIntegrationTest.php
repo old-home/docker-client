@@ -8,7 +8,7 @@ use Graywings\DockerClient\Domain\Container\Container;
 use Graywings\DockerClient\Domain\Container\Containers;
 use Graywings\DockerClient\Domain\Container\IContainerRepository;
 use Graywings\DockerClient\Domain\Container\Labels;
-use Graywings\DockerClient\Repositories\Container\ContainerRepository;
+use Graywings\DockerClient\Infrastructures\Repositories\Container\ContainerRepository;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

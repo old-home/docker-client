@@ -13,7 +13,7 @@ The project follows a layered architecture:
    - Defines interfaces for repositories
    - Includes value objects and domain services
 
-2. **Repository Layer** (`src/Repositories/`)
+2. **Repository Layer** (`src/Infrastructures/Repositories/`)
    - Implements the repository interfaces
    - Handles communication with the Docker API
    - Transforms API responses into domain objects
