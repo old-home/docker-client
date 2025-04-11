@@ -1,3 +1,7 @@
+[![Latest Stable Version](http://poser.pugx.org/old-home/docker-client/v)](https://packagist.org/packages/old-home/docker-client)
+[![PHP Version Require](http://poser.pugx.org/old-home/docker-client/require/php)](https://packagist.org/packages/old-home/docker-client)
+[![codecov](https://codecov.io/gh/old-home/docker-client/graph/badge.svg?token=4G0FL9FPUI)](https://codecov.io/gh/old-home/docker-client)
+
 # Docker Client for PHP
 
 A PHP client library for Docker API
@@ -9,9 +13,7 @@ This library provides a client for easily interacting with the Docker API from P
 ## Requirements
 
 - PHP 8.4 or higher
-- ext-bcmath
 - ext-curl
-- ext-gmp
 
 ## Installation
 

@@ -55,9 +55,7 @@
     },
     "require": {
         "php": ">=8.4",
-        "ext-bcmath": "*",
         "ext-curl": "*",
-        "ext-gmp": "*",
         "guzzlehttp/guzzle": "^7.9",
         "ramsey/collection": "^2.1"
     },
@@ -68,6 +66,7 @@
         "doctrine/coding-standard": "^13.0",
         "slevomat/coding-standard": "^8.16",
         "php-di/php-di": "^7.0",
-        "captainhook/captainhook": "^5.25"
+        "captainhook/captainhook": "^5.25",
+        "ramsey/conventional-commits": "^1.6"
     }
 }

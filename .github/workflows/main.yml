@@ -28,3 +28,17 @@ jobs:
 
       - name: Build Project
         run: composer build
+
+      - name: Run PHPUnit with Coverage
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Upload Coverage Report
+        uses: codecov/codecov-action@v5
+        with:
+          files: coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: old-home/docker-client
+          flags: unittests
+          name: code-coverage
+          fail_ci_if_error: true
+          verbose: true
