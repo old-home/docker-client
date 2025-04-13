@@ -14,6 +14,7 @@ This library provides a client for easily interacting with the Docker API from P
 
 - PHP 8.4 or higher
 - ext-curl
+- Docker engine API 1.48 or higher
 
 ## Installation
 

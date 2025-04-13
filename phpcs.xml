@@ -8,6 +8,7 @@
     <exclude name="Squiz.Commenting.FunctionComment.MissingParamName" />
     <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment" />
   </rule>
+  <rule ref="standard/ruleset.xml" />
   <rule ref="SlevomatCodingStandard.Commenting.DisallowOneLinePropertyDocComment" />
   <rule ref="SlevomatCodingStandard.Classes.RequireAbstractOrFinal" />
   <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" />
@@ -28,7 +29,6 @@
       </property>
     </properties>
   </rule>
-
   <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
     <properties>
       <property name="enableObjectTypeHint" value="true"/>

@@ -17,6 +17,11 @@
         }
     },
     "scripts": {
+        "build:local": [
+            "@test:all",
+            "@lint",
+            "@docs"
+        ],
         "build": [
             "@test:no-report",
             "@lint"
@@ -25,6 +30,9 @@
         "test:no-report": "phpunit",
         "test:all": "phpunit --testsuite unit,feature,integration --coverage-html coverage/",
         "test:on-ci": "phpunit --testsuite unit,feature",
+        "docs": [
+            "doxygen Doxyfile"
+        ],
         "lint": [
             "@lint:phpcbf",
             "@lint:phpstan",
@@ -34,10 +42,12 @@
         "lint:phpcs": "phpcs",
         "lint:phpcbf": "phpcbf",
         "post-install-cmd": [
-            "vendor/bin/captainhook install --force"
+            "vendor/bin/captainhook install --force",
+            "phive install"
         ],
         "post-update-cmd": [
-            "vendor/bin/captainhook install --force"
+            "vendor/bin/captainhook install --force",
+            "phive update"
         ]
     },
     "autoload": {
@@ -47,6 +57,8 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "GraywingsStandard\\": "standard",
+            "Graywings\\DockerClient\\Sniffs\\": "sniffs",
             "Graywings\\DockerClient\\Tests\\Unit\\": "tests/unit",
             "Graywings\\DockerClient\\Tests\\Feature\\": "tests/feature",
             "Graywings\\DockerClient\\Tests\\Integration\\": "tests/integration",
@@ -56,6 +68,7 @@
     "require": {
         "php": ">=8.4",
         "ext-curl": "*",
+        "psr/http-message-implementation": "*",
         "guzzlehttp/guzzle": "^7.9",
         "ramsey/collection": "^2.1"
     },
