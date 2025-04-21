@@ -10,10 +10,18 @@ use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * This class contains unit tests for the IPAddress class, which represents
+ * an IP address and provides methods for parsing, validating, and comparing
+ * IP addresses.
+ */
 #[CoversClass(IPAddress::class)]
 #[CoversClass(IPVersion::class)]
 final class IPAddressTest extends TestCase
 {
+    /**
+     * Tests parsing a valid IPv4 address.
+     */
     public function testParseIPv4(): void
     {
         $ipAddress = IPAddress::parse('192.168.1.1');
@@ -21,6 +29,9 @@ final class IPAddressTest extends TestCase
         $this->assertSame(IPVersion::IPV4, $ipAddress->ipVersion);
     }
 
+    /**
+     * Tests parsing a valid IPv6 address.
+     */
     public function testParseIPv6(): void
     {
         $ipAddress = IPAddress::parse('2001:db8:85a3::8a2e:370:7334');
@@ -28,6 +39,9 @@ final class IPAddressTest extends TestCase
         $this->assertSame(IPVersion::IPV6, $ipAddress->ipVersion);
     }
 
+    /**
+     * Tests parsing an invalid IP address.
+     */
     public function testParseInvalidIP(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -35,6 +49,9 @@ final class IPAddressTest extends TestCase
         IPAddress::parse('invalid-ip');
     }
 
+    /**
+     * Tests parsing an IPv4 address with an invalid format.
+     */
     public function testParseInvalidIPv4Format(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -42,6 +59,9 @@ final class IPAddressTest extends TestCase
         IPAddress::parse('256.256.256.256');
     }
 
+    /**
+     * Tests parsing an IPv6 address with an invalid format.
+     */
     public function testParseInvalidIPv6Format(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -49,6 +69,9 @@ final class IPAddressTest extends TestCase
         IPAddress::parse('2001:db8:85a3:85a3:85a3:85a3:85a3:85a3:85a3');
     }
 
+    /**
+     * Tests parsing an empty IP address string.
+     */
     public function testParseEmptyIP(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -56,6 +79,9 @@ final class IPAddressTest extends TestCase
         IPAddress::parse('');
     }
 
+    /**
+     * Tests comparing two IP addresses for equality.
+     */
     public function testEquals(): void
     {
         $ip1 = IPAddress::parse('192.168.1.1');

@@ -1,43 +1,78 @@
-{
-    "containers": [
-        {
-            "Id": "container1",
-            "Names": ["/test-container-1"],
-            "Image": "nginx:latest",
-            "ImageID": "sha256:123456789",
-            "Command": "nginx -g 'daemon off;'",
-            "Created": 1617123456,
-            "Status": "running",
-            "Ports": [
-                {
-                    "IP": "0.0.0.0",
-                    "PrivatePort": 80,
-                    "PublicPort": 8080,
-                    "Type": "tcp"
-                }
-            ],
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers",
-                "environment": "test"
+[
+    {
+        "Id": "83923ed9636ae8734abfd31d771132efd5e3ed0ee1737be69925173cddcbf623",
+        "Names": [
+            "/my_dnsmasq_container"
+        ],
+        "Image": "sha256:549e868727d1995c6c7bdce88eb41de9976674b1b0573ae29dcda0fc64c075ee",
+        "ImageID": "sha256:549e868727d1995c6c7bdce88eb41de9976674b1b0573ae29dcda0fc64c075ee",
+        "Command": "dnsmasq -k -d -C /etc/dnsmasq.conf -8 /dev/stdout",
+        "Created": 1744271842,
+        "Ports": [
+            {
+                "IP": "0.0.0.0",
+                "PrivatePort": 53,
+                "PublicPort": 53,
+                "Type": "tcp"
             },
-            "SizeRw": 1024,
-            "SizeRootFs": 102400
+            {
+                "IP": "::",
+                "PrivatePort": 53,
+                "PublicPort": 53,
+                "Type": "tcp"
+            },
+            {
+                "IP": "0.0.0.0",
+                "PrivatePort": 53,
+                "PublicPort": 53,
+                "Type": "udp"
+            },
+            {
+                "IP": "::",
+                "PrivatePort": 53,
+                "PublicPort": 53,
+                "Type": "udp"
+            }
+        ],
+        "Labels": {
+            "maintainer": "Taira Terashima <taira.terashima@gmail.com>"
         },
-        {
-            "Id": "container2",
-            "Names": ["/test-container-2"],
-            "Image": "redis:latest",
-            "ImageID": "sha256:987654321",
-            "Command": "redis-server",
-            "Created": 1617123457,
-            "Status": "exited",
-            "Ports": [],
-            "Labels": {
-                "maintainer": "Redis Docker Maintainers",
-                "environment": "test"
-            },
-            "SizeRw": null,
-            "SizeRootFs": null
+        "State": "running",
+        "Status": "Up 33 hours",
+        "HostConfig": {
+            "NetworkMode": "bridge"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Name": "bind-data",
+                "Source": "data/dnsmasq.conf",
+                "Destination": "/etc/dnsmasq.conf",
+                "Driver": "overlay2",
+                "Mode": "ro",
+                "RW": true,
+                "Propagation": "shared"
+            }
+        ],
+        "NetworkSettings": {
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "NetworkID": "9680e85d2a14f7b4cdf2fcf21ef0aa548eabd8551400bb0b434fc3da545e749f",
+                    "EndpointID": "bb2af57994a6a994012578a1cf254d00c694e8bf14d80fc3e4c861f282f604f4",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DriverOpts": null,
+                    "DNSNames": null
+                }
+            }
         }
-    ]
-}
+    }
+]

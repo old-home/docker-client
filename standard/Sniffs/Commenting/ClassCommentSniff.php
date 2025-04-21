@@ -62,7 +62,7 @@ final class ClassCommentSniff implements Sniff
         // Traverse backwards to skip attributes, whitespace, and final keywords.
         while ($currentPtr > 0) {
             if ($tokens[$currentPtr]['code'] === T_ATTRIBUTE_END) {
-                $currentPtr = $phpcsFile->findPrevious([T_ATTRIBUTE], $currentPtr, null);
+                $currentPtr = $phpcsFile->findPrevious([T_ATTRIBUTE], $currentPtr);
             } elseif (
                 $tokens[$currentPtr]['code'] !== T_WHITESPACE
                 && $tokens[$currentPtr]['code'] !== T_READONLY

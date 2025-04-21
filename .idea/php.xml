@@ -9,10 +9,17 @@
   </component>
   <component name="MessDetector">
     <phpmd_settings>
-      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" timeout="30000" />
+      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" tool_path="/home/t_terashima/develop/old-home/docker-client/vendor/bin/phpmd" timeout="30000" />
+      <phpmd_by_interpreter interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" tool_path="/home/t_terashima/develop/old-home/docker-client/vendor/bin/phpmd" />
+      <MessDetectorConfiguration tool_path="$PROJECT_DIR$/vendor/bin/phpmd" />
     </phpmd_settings>
   </component>
   <component name="MessDetectorOptionsConfiguration">
+    <option name="codeSize" value="true" />
+    <option name="controversial" value="true" />
+    <option name="design" value="true" />
+    <option name="naming" value="true" />
+    <option name="unusedCode" value="true" />
     <option name="transferred" value="true" />
   </component>
   <component name="PHPCSFixerOptionsConfiguration">
@@ -32,7 +39,7 @@
   </component>
   <component name="PhpCodeSniffer">
     <phpcs_settings>
-      <PhpCSConfiguration beautifier_path="$PROJECT_DIR$/vendor/bin/phpcbf" tool_path="$PROJECT_DIR$/vendor/bin/phpcs" />
+      <PhpCSConfiguration beautifier_path="$PROJECT_DIR$/vendor/bin/phpcbf" standards="Doctrine;MySource;PEAR;PSR1;PSR12;PSR2;SlevomatCodingStandard;Squiz;Zend" tool_path="$PROJECT_DIR$/vendor/bin/phpcs" />
       <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" beautifier_path="$PROJECT_DIR$/vendor/bin/phpcbf" tool_path="/home/t_terashima/develop/old-home/docker-client/vendor/bin/phpcs" timeout="30000" />
       <phpcs_by_interpreter interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" beautifier_path="$PROJECT_DIR$/vendor/bin/phpcbf" tool_path="/home/t_terashima/develop/old-home/docker-client/vendor/bin/phpcs" />
     </phpcs_settings>
@@ -98,6 +105,58 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/sebastianfeldmann/cli" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/sebastianfeldmann/git" />
+      <path value="$PROJECT_DIR$/vendor/sebastianfeldmann/camino" />
+      <path value="$PROJECT_DIR$/vendor/seld/signal-handler" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/opis/uri" />
+      <path value="$PROJECT_DIR$/vendor/opis/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/opis/string" />
+      <path value="$PROJECT_DIR$/vendor/captainhook/secrets" />
+      <path value="$PROJECT_DIR$/vendor/captainhook/captainhook" />
+      <path value="$PROJECT_DIR$/vendor/marc-mabe/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/jawira/case-converter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/conventional-commits" />
+      <path value="$PROJECT_DIR$/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/spatie/array-to-xml" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/revolt/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/amphp/parallel" />
+      <path value="$PROJECT_DIR$/vendor/amphp/amp" />
+      <path value="$PROJECT_DIR$/vendor/amphp/dns" />
+      <path value="$PROJECT_DIR$/vendor/amphp/byte-stream" />
+      <path value="$PROJECT_DIR$/vendor/amphp/parser" />
+      <path value="$PROJECT_DIR$/vendor/amphp/sync" />
+      <path value="$PROJECT_DIR$/vendor/amphp/process" />
+      <path value="$PROJECT_DIR$/vendor/amphp/serialization" />
+      <path value="$PROJECT_DIR$/vendor/amphp/pipeline" />
+      <path value="$PROJECT_DIR$/vendor/amphp/socket" />
+      <path value="$PROJECT_DIR$/vendor/amphp/cache" />
+      <path value="$PROJECT_DIR$/vendor/daverandom/libdns" />
+      <path value="$PROJECT_DIR$/vendor/netresearch/jsonmapper" />
+      <path value="$PROJECT_DIR$/vendor/kelunik/certificate" />
+      <path value="$PROJECT_DIR$/vendor/vimeo/psalm" />
+      <path value="$PROJECT_DIR$/vendor/felixfbecker/language-server-protocol" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php84" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/vendor/danog/advanced-json-rpc" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
@@ -260,6 +319,7 @@
   <component name="Psalm">
     <Psalm_settings>
       <psalm_fixer_by_interpreter asDefaultInterpreter="true" interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" timeout="60000" />
+      <psalm_fixer_by_interpreter interpreter_id="417cfa90-2f1d-4262-bc38-02e9f19e7069" tool_path="$PROJECT_DIR$/vendor/bin/psalm" />
     </Psalm_settings>
   </component>
   <component name="PsalmOptionsConfiguration">

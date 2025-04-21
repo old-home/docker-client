@@ -4,6 +4,7 @@
   <rule ref="PSR1" />
   <rule ref="PSR12" />
   <rule ref="vendor/doctrine/coding-standard/lib/Doctrine/ruleset.xml">
+    <exclude name="Squiz.Arrays.ArrayBracketSpacing.SpaceBeforeBracket" />
     <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps" />
     <exclude name="Squiz.Commenting.FunctionComment.MissingParamName" />
     <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment" />

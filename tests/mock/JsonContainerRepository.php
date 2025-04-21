@@ -4,32 +4,35 @@ declare(strict_types=1);
 
 namespace Graywings\DockerClient\Tests\Mock;
 
-use Graywings\DockerClient\Domain\Container\Container;
 use Graywings\DockerClient\Domain\Container\Containers;
-use Graywings\DockerClient\Domain\Container\ContainerState;
 use Graywings\DockerClient\Domain\Container\IContainerRepository;
-use Graywings\DockerClient\Domain\Container\Labels;
-use Graywings\DockerClient\Domain\Network\IPAddress;
-use Graywings\DockerClient\Domain\Network\Port;
-use Graywings\DockerClient\Domain\Network\PortNumber;
-use Graywings\DockerClient\Domain\Network\TransportProtocol;
-use Ramsey\Collection\Collection;
+use Graywings\DockerClient\Queries\Container\ContainersQuery;
+use Override;
 use RuntimeException;
 
 use function file_get_contents;
-use function json_decode;
-use function json_last_error;
-use function json_last_error_msg;
 
-use const JSON_ERROR_NONE;
-
+/**
+ * This class provides a mock implementation of the `IContainerRepository` interface.
+ * It reads Docker container data from a JSON file, parses it, and converts the data
+ * into `Container` objects. The repository allows access to the parsed containers
+ * through the `getContainers` method.
+ */
 final class JsonContainerRepository implements IContainerRepository
 {
     /**
-     * @var Container[]
+     * @var Containers An array of `Container` objects parsed from the JSON file.
      */
-    private array $containers = [];
+    private Containers $containers;
 
+    /**
+     * This constructor reads a JSON file containing Docker container data,
+     * parses it, and initializes the repository with `Container` objects.
+     *
+     * @param string $jsonPath The path to the JSON file containing container data.
+     *
+     * @throws RuntimeException If the JSON file cannot be read or parsed.
+     */
     public function __construct(string $jsonPath)
     {
         $jsonContent = file_get_contents($jsonPath);
@@ -37,41 +40,20 @@ final class JsonContainerRepository implements IContainerRepository
             throw new RuntimeException('Failed to read JSON file: ' . $jsonPath);
         }
 
-        $data = json_decode($jsonContent, true);
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new RuntimeException('Failed to parse JSON: ' . json_last_error_msg());
-        }
-
-        foreach ($data['containers'] as $containerData) {
-            $ports = [];
-            foreach ($containerData['Ports'] as $portData) {
-                $ports[] = new Port(
-                    IPAddress::parse($portData['IP'] ?? ''),
-                    new PortNumber($portData['PrivatePort']),
-                    new PortNumber($portData['PublicPort'] ?? 0),
-                    TransportProtocol::from($portData['Type']),
-                );
-            }
-
-            $this->containers[] = new Container(
-                $containerData['Id'],
-                $containerData['Names'],
-                $containerData['Image'],
-                $containerData['ImageID'],
-                $containerData['Command'],
-                $containerData['Created'],
-                $ports,
-                new Labels($containerData['Labels']),
-                ContainerState::from($containerData['Status']),
-                $containerData['Status'],
-                $containerData['SizeRw'],
-                $containerData['SizeRootFs'],
-            );
-        }
+        $this->containers = Containers::fromJson($jsonContent);
     }
 
-    public function getContainers(): Containers
+    /**
+     * Retrieves the list of containers.
+     *
+     * This method returns a `Containers` object containing all the `Container`
+     * objects parsed from the JSON file.
+     *
+     * @return Containers A collection of `Container` objects.
+     */
+    #[Override]
+    public function getContainers(ContainersQuery|null $query = null): Containers
     {
-        return new Containers(new Collection(Container::class, $this->containers));
+        return $this->containers;
     }
 }

@@ -30,24 +30,25 @@
         "test:no-report": "phpunit",
         "test:all": "phpunit --testsuite unit,feature,integration --coverage-html coverage/",
         "test:on-ci": "phpunit --testsuite unit,feature",
+        "test:integration": "phpunit --testsuite integration",
         "docs": [
             "doxygen Doxyfile"
         ],
         "lint": [
             "@lint:phpcbf",
             "@lint:phpstan",
-            "@lint:phpcs"
+            "@lint:phpcs",
+            "@lint:psalm"
         ],
         "lint:phpstan": "phpstan analyse src/ --level 8",
         "lint:phpcs": "phpcs",
         "lint:phpcbf": "phpcbf",
+        "lint:psalm": "psalm --no-cache --show-info=true",
         "post-install-cmd": [
-            "vendor/bin/captainhook install --force",
-            "phive install"
+            "vendor/bin/captainhook install --force"
         ],
         "post-update-cmd": [
-            "vendor/bin/captainhook install --force",
-            "phive update"
+            "vendor/bin/captainhook install --force"
         ]
     },
     "autoload": {
@@ -58,7 +59,6 @@
     "autoload-dev": {
         "psr-4": {
             "GraywingsStandard\\": "standard",
-            "Graywings\\DockerClient\\Sniffs\\": "sniffs",
             "Graywings\\DockerClient\\Tests\\Unit\\": "tests/unit",
             "Graywings\\DockerClient\\Tests\\Feature\\": "tests/feature",
             "Graywings\\DockerClient\\Tests\\Integration\\": "tests/integration",
@@ -70,7 +70,8 @@
         "ext-curl": "*",
         "psr/http-message-implementation": "*",
         "guzzlehttp/guzzle": "^7.9",
-        "ramsey/collection": "^2.1"
+        "ramsey/collection": "^2.1",
+        "nesbot/carbon": "^3.9"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
@@ -80,6 +81,7 @@
         "slevomat/coding-standard": "^8.16",
         "php-di/php-di": "^7.0",
         "captainhook/captainhook": "^5.25",
-        "ramsey/conventional-commits": "^1.6"
+        "ramsey/conventional-commits": "^1.6",
+        "vimeo/psalm": "^6.10"
     }
 }

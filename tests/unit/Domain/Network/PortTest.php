@@ -11,12 +11,25 @@ use Graywings\DockerClient\Domain\Network\TransportProtocol;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * This class contains unit tests for the Port class, which represents
+ * a network port mapping. It validates the creation of a Port instance
+ * with an IP address, private port, public port, and transport protocol.
+ */
 #[CoversClass(Port::class)]
 #[CoversClass(IPAddress::class)]
 #[CoversClass(PortNumber::class)]
 #[CoversClass(TransportProtocol::class)]
 final class PortTest extends TestCase
 {
+    /**
+     * Tests creating a Port instance with valid parameters.
+     *
+     * This test ensures that a Port object can be created with a valid
+     * IP address, private port, public port, and transport protocol.
+     * It also verifies that the properties of the Port object are correctly
+     * assigned and accessible.
+     */
     public function testCreatePort(): void
     {
         $ipAddress         = IPAddress::parse('127.0.0.1');
