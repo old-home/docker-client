@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0238621c95b26498375a2f99797a781d",
+    "content-hash": "c500ce7536c467637d0c69aca4abfd7c",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -3325,6 +3325,46 @@
             "time": "2024-08-06T10:04:20+00:00"
         },
         {
+            "name": "graywings/standard",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/old-home/standard.git",
+                "reference": "70fce4da0081895bd60eef8c15a948f4e8fb1b44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/old-home/standard/zipball/70fce4da0081895bd60eef8c15a948f4e8fb1b44",
+                "reference": "70fce4da0081895bd60eef8c15a948f4e8fb1b44",
+                "shasum": ""
+            },
+            "require": {
+                "squizlabs/php_codesniffer": "^3.12"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GraywingsStandard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taira Terashima",
+                    "email": "taira.terashima@gmail.com"
+                }
+            ],
+            "description": "A PHPCS plugin that represents coding standards in Graywings",
+            "support": {
+                "issues": "https://github.com/old-home/standard/issues",
+                "source": "https://github.com/old-home/standard/tree/0.0.3"
+            },
+            "time": "2025-04-21T08:49:08+00:00"
+        },
+        {
             "name": "jawira/case-converter",
             "version": "v3.5.2",
             "source": {
@@ -4660,16 +4700,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.11",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8ca5f79a8f63c49b2359065832a654e1ec70ac30"
+                "reference": "96dde49e967c0c22812bcfa7bda4ff82c09f3b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8ca5f79a8f63c49b2359065832a654e1ec70ac30",
-                "reference": "8ca5f79a8f63c49b2359065832a654e1ec70ac30",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/96dde49e967c0c22812bcfa7bda4ff82c09f3b0c",
+                "reference": "96dde49e967c0c22812bcfa7bda4ff82c09f3b0c",
                 "shasum": ""
             },
             "require": {
@@ -4714,7 +4754,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-24T13:45:00+00:00"
+            "time": "2025-04-16T13:19:18+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6783,16 +6823,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.12.1",
+            "version": "3.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "ea16a1f3719783345febd3aab41beb55c8c84bfd"
+                "reference": "6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ea16a1f3719783345febd3aab41beb55c8c84bfd",
-                "reference": "ea16a1f3719783345febd3aab41beb55c8c84bfd",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa",
+                "reference": "6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa",
                 "shasum": ""
             },
             "require": {
@@ -6863,7 +6903,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-04-04T12:57:55+00:00"
+            "time": "2025-04-13T04:10:18+00:00"
         },
         {
             "name": "staabm/side-effects-detector",
