@@ -30,10 +30,8 @@ composer require graywings/docker-client
 use Graywings\DockerClient\DockerClient;
 
 $client = new DockerClient();
-$containers = $client->containers()->list();
+$containers = $client->getContainers()
 ```
-
-For detailed usage instructions, please refer to the [Project Guide](doc/PROJECT_GUID.md).
 
 ## Development
 
@@ -47,7 +45,7 @@ For detailed usage instructions, please refer to the [Project Guide](doc/PROJECT
 
 ```bash
 # Run all tests with coverage report
-composer test
+composer test:all
 
 # Run tests without coverage report
 composer test:no-report
@@ -63,6 +61,7 @@ composer lint
 composer lint:phpstan  # Static analysis with PHPStan
 composer lint:phpcs    # Code style check with PHP_CodeSniffer
 composer lint:phpcbf   # Code style fix with PHP_CodeSniffer
+composer lint:psalm    # Static analysis with Psalm
 ```
 
 ## License
