@@ -29,16 +29,16 @@ readonly final class IpamConfig
     }
 
     /**
-     * Creates an `IpamConfig` object from a `stdClass` object.
+     * Creates an `IpamConfig` object from an associative array.
      *
-     * This method parses a `stdClass` object (typically retrieved from the Docker API)
+     * This method parses an associative array (typically retrieved from the Docker API)
      * and extracts the IPAM configuration details to initialize an `IpamConfig` instance.
      *
      * @param array{
      *  IPv4Address: string,
      *  IPv6Address: string,
      *  LinkLocalIPs: string[]
-     * } $ipamConfigArray The `stdClass` object containing IPAM configuration data.
+     * } $ipamConfigArray The associative array containing IPAM configuration data.
      *
      * @return self A new `IpamConfig` object populated with the parsed data.
      */

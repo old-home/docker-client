@@ -25,16 +25,16 @@ readonly final class HostConfig
     }
 
     /**
-     * Creates a `HostConfig` object from a `stdClass` object.
+     * Creates a `HostConfig` object from an associative array.
      *
-     * This method parses a `stdClass` object (typically retrieved from the Docker API)
+     * This method parses an associative array (typically retrieved from the Docker API)
      * and extracts the `NetworkMode` and `Annotations` properties to initialize a
      * `HostConfig` instance.
      *
      * @param array{
      *  NetworkMode: string,
      *  Annotations: array<string, string>|null
-     * } $hostConfigArray The `stdClass` object containing host configuration data.
+     * } $hostConfigArray The associative array containing host configuration data.
      *
      * @return self A new `HostConfig` object.
      */

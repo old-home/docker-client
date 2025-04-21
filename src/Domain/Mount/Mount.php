@@ -46,19 +46,19 @@ readonly final class Mount
      *  Mode: string,
      *  RW: bool,
      *  Propagation: string
-     * } $mountStdClass
+     * } $mountArray
      */
-    public static function fromArray(array $mountStdClass): self
+    public static function fromArray(array $mountArray): self
     {
         return new self(
-            MountType::from($mountStdClass['Type']),
-            $mountStdClass['Name'],
-            $mountStdClass['Source'],
-            $mountStdClass['Destination'],
-            StorageDriver::from($mountStdClass['Driver']),
-            $mountStdClass['Mode'],
-            $mountStdClass['RW'],
-            $mountStdClass['Propagation'],
+            MountType::from($mountArray['Type']),
+            $mountArray['Name'],
+            $mountArray['Source'],
+            $mountArray['Destination'],
+            StorageDriver::from($mountArray['Driver']),
+            $mountArray['Mode'],
+            $mountArray['RW'],
+            $mountArray['Propagation'],
         );
     }
 }

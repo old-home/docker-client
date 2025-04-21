@@ -11,8 +11,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * This class contains unit tests for the `Labels` class, which represents
  * a collection of key-value pairs (labels) associated with a Docker container.
- * It validates the creation of `Labels` objects from arrays and `stdClass`
- * instances, as well as handling empty labels.
+ * It validates the creation of `Labels` objects from arrays instances, as
+ * well as handling empty labels.
  */
 #[CoversClass(Labels::class)]
 final class LabelsTest extends TestCase

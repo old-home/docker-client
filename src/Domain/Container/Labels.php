@@ -10,7 +10,7 @@ namespace Graywings\DockerClient\Domain\Container;
  * and manage containers more effectively.
  *
  * The class provides methods to initialize labels and convert raw data
- * (e.g., from a `stdClass` object) into a structured `Labels` object.
+ * (e.g., from an associative array) into a structured `Labels` object.
  */
 final readonly class Labels
 {
@@ -24,13 +24,13 @@ final readonly class Labels
     }
 
     /**
-     * Creates a `Labels` object from a `stdClass` object.
+     * Creates a `Labels` object from an associative array.
      *
-     * This method converts a `stdClass` object (typically retrieved from the
+     * This method converts an associative array (typically retrieved from the
      * Docker API) into an associative array of labels and initializes a `Labels`
      * object with the resulting array.
      *
-     * @param array<string, string> $labelsArray A `stdClass` object representing the raw label data.
+     * @param array<string, string> $labelsArray An associative array representing the raw label data.
      *
      * @return self A new `Labels` object containing the parsed labels.
      */

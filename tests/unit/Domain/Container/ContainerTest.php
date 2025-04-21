@@ -26,7 +26,7 @@ use Ramsey\Collection\Collection;
 /**
  * This class contains unit tests for the `Container` class, which represents
  * a Docker container. It validates the creation of `Container` objects using
- * direct instantiation and from a `stdClass` object. The tests ensure that
+ * direct instantiation and from an associative array. The tests ensure that
  * all properties, such as ID, names, image, command, state, mounts, and network
  * settings, are correctly assigned and accessible.
  */
@@ -105,64 +105,64 @@ final class ContainerTest extends TestCase
     }
 
     /**
-     * Tests creating a `Container` object from a `stdClass` instance.
+     * Tests creating a `Container` object from an associative array.
      *
-     * This test ensures that a `Container` object can be created from a
-     * `stdClass` instance with properties corresponding to the container's
+     * This test ensures that a `Container` object can be created from an
+     * associative array with properties corresponding to the container's
      * attributes. It verifies that the properties are correctly converted
      * and accessible in the resulting `Container` object.
      */
-    public function testCreateContainerFromStdClass(): void
+    public function testCreateContainerFromArray(): void
     {
-        $stdClass                                               = [];
-        $stdClass['Id']                                         = 'container1';
-        $stdClass['Names']                                      = ['container1'];
-        $stdClass['Image']                                      = 'image1';
-        $stdClass['ImageID']                                    = 'image1-id';
-        $stdClass['Command']                                    = 'command1';
-        $stdClass['Created']                                    = 1234567890;
-        $stdClass['Ports']                                      = [];
-        $stdClass['Labels']                                     = ['key' => 'value'];
-        $stdClass['State']                                      = 'running';
-        $stdClass['Status']                                     = 'status 0';
-        $stdClass['Mounts']                                     = [];
-        $stdClass['NetworkSettings']                            = [];
-        $stdClass['NetworkSettings']['Networks']                = [];
-        $stdClass['NetworkSettings']['Networks']['dns-network'] = [];
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['IPAMConfig']                                      = null;
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['Links']                                           = ['169.254.0.1'];
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['MacAddress']                                      = '02:1B:8B:00:00:02';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['Aliases']                                         = [];
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['DriverOpts']                                      = [];
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['GwPriority']                                      = 10;
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['NetworkID']                                       = 'network1';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['EndpointID']                                      = 'endpoint1';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['Gateway']                                         = '192.168.0.1';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['IPAddress']                                       = '192.168.0.100';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['IPPrefixLen']                                     = 24;
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['IPv6Gateway']                                     = '2001:db8:85a3:0:0:8a2e:370:7334';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['GlobalIPv6Address']                               = '2001:db8:85a3:0:0:8a2e:370:7320';
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['GlobalIPv6PrefixLen']                             = 32;
-        $stdClass['NetworkSettings']['Networks']['dns-network']
-            ['DNSNames']                                        = [];
-        $stdClass['SizeRw']                                     = 1024;
-        $stdClass['SizeRootFs']                                 = 2048;
+        $array                                               = [];
+        $array['Id']                                         = 'container1';
+        $array['Names']                                      = ['container1'];
+        $array['Image']                                      = 'image1';
+        $array['ImageID']                                    = 'image1-id';
+        $array['Command']                                    = 'command1';
+        $array['Created']                                    = 1234567890;
+        $array['Ports']                                      = [];
+        $array['Labels']                                     = ['key' => 'value'];
+        $array['State']                                      = 'running';
+        $array['Status']                                     = 'status 0';
+        $array['Mounts']                                     = [];
+        $array['NetworkSettings']                            = [];
+        $array['NetworkSettings']['Networks']                = [];
+        $array['NetworkSettings']['Networks']['dns-network'] = [];
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['IPAMConfig']                                   = null;
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['Links']                                        = ['169.254.0.1'];
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['MacAddress']                                   = '02:1B:8B:00:00:02';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['Aliases']                                      = [];
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['DriverOpts']                                   = [];
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['GwPriority']                                   = 10;
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['NetworkID']                                    = 'network1';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['EndpointID']                                   = 'endpoint1';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['Gateway']                                      = '192.168.0.1';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['IPAddress']                                    = '192.168.0.100';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['IPPrefixLen']                                  = 24;
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['IPv6Gateway']                                  = '2001:db8:85a3:0:0:8a2e:370:7334';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['GlobalIPv6Address']                            = '2001:db8:85a3:0:0:8a2e:370:7320';
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['GlobalIPv6PrefixLen']                          = 32;
+        $array['NetworkSettings']['Networks']['dns-network']
+            ['DNSNames']                                     = [];
+        $array['SizeRw']                                     = 1024;
+        $array['SizeRootFs']                                 = 2048;
 
-        $container = Container::fromArray($stdClass);
+        $container = Container::fromArray($array);
 
         $this->assertSame('container1', $container->id);
         $this->assertSame(['container1'], $container->names);

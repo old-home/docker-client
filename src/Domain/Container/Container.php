@@ -53,10 +53,10 @@ readonly final class Container
     }
 
     /**
-     * Creates a `Container` object from a `stdClass` object.
+     * Creates a `Container` object from an associative array.
      *
      * This method is used to convert raw container data (typically retrieved
-     * from the Docker API in JSON format and decoded into a `stdClass` object)
+     * from the Docker API in JSON format and decoded into an associative array)
      * into a structured `Container` object.
      *
      * @param array{
@@ -130,7 +130,7 @@ readonly final class Container
      *   RW: bool,
      *   Propagation: string
      *  }>
-     * } $containerArray The raw container data as a `stdClass` object.
+     * } $containerArray The raw container data as an associative array, typically.
      *
      * @return self A new `Container` object populated with the provided data.
      */

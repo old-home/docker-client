@@ -51,15 +51,15 @@ final readonly class NetworkSettings
      *   GlobalIPv6PrefixLen: int,
      *   DNSNames: string[]|null
      *  }>
-     * } $networkSettingsStdClass
+     * } $networkSettingsArray
      */
-    public static function fromArray(array $networkSettingsStdClass): self
+    public static function fromArray(array $networkSettingsArray): self
     {
         /**
          * @var Collection<NetworkSetting> $networkSettings
          */
         $networkSettings = new Collection(NetworkSetting::class, []);
-        foreach ($networkSettingsStdClass['Networks'] as $key => $value) {
+        foreach ($networkSettingsArray['Networks'] as $key => $value) {
             $networkSettings->add(
                 NetworkSetting::fromArray($key, $value),
             );

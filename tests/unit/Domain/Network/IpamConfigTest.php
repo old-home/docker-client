@@ -95,23 +95,23 @@ final class IpamConfigTest extends TestCase
     }
 
     /**
-     * Tests the creation of an IPAMConfig object from a valid stdClass object.
+     * Tests the creation of an IPAMConfig object from a valid associative array.
      *
-     * This test ensures that the `fromStdClass` method correctly parses a
-     * stdClass object and initializes an `IpamConfig` instance with the
+     * This test ensures that the `fromArray` method correctly parses an
+     * associative array and initializes an `IpamConfig` instance with the
      * appropriate IPv4, IPv6, and link-local IP addresses.
      */
     public function testFromArray(): void
     {
-        $stdClass                 = [];
-        $stdClass['IPv4Address']  = '192.168.1.10';
-        $stdClass['IPv6Address']  = '2001:db8::1';
-        $stdClass['LinkLocalIPs'] = [
+        $array                 = [];
+        $array['IPv4Address']  = '192.168.1.10';
+        $array['IPv6Address']  = '2001:db8::1';
+        $array['LinkLocalIPs'] = [
             '169.254.1.1',
             '169.254.1.2',
         ];
 
-        $ipamConfig = IpamConfig::fromArray($stdClass);
+        $ipamConfig = IpamConfig::fromArray($array);
 
         $this->assertSame('192.168.1.10', (string) $ipamConfig->ipV4Address);
         $this->assertSame('2001:db8::1', (string) $ipamConfig->ipV6Address);
@@ -121,19 +121,19 @@ final class IpamConfigTest extends TestCase
     }
 
     /**
-     * Tests the creation of an IPAMConfig object from a stdClass object with an empty list of link-local IPs.
+     * Tests the creation of an IPAMConfig object from an associative array with an empty list of link-local IPs.
      *
-     * This test ensures that the `fromStdClass` method correctly handles a
-     * stdClass object where the `linkLocalIPs` property is an empty array.
+     * This test ensures that the `fromArray` method correctly handles an
+     * associative array where the `linkLocalIPs` property is an empty array.
      */
     public function testFromArrayWithEmptyLinkLocalIPs(): void
     {
-        $stdClass                 = [];
-        $stdClass['IPv4Address']  = '192.168.1.10';
-        $stdClass['IPv6Address']  = '2001:db8::1';
-        $stdClass['LinkLocalIPs'] = [];
+        $array                 = [];
+        $array['IPv4Address']  = '192.168.1.10';
+        $array['IPv6Address']  = '2001:db8::1';
+        $array['LinkLocalIPs'] = [];
 
-        $ipamConfig = IpamConfig::fromArray($stdClass);
+        $ipamConfig = IpamConfig::fromArray($array);
 
         $this->assertSame('192.168.1.10', (string) $ipamConfig->ipV4Address);
         $this->assertSame('2001:db8::1', (string) $ipamConfig->ipV6Address);

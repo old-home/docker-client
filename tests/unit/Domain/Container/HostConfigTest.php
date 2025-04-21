@@ -9,12 +9,11 @@ use Graywings\DockerClient\Domain\Container\NetworkMode;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use stdClass;
 
 /**
  * This class contains unit tests for the `HostConfig` class. It verifies the
  * behavior of the `HostConfig` class, including its constructor and the
- * `fromStdClass` method.
+ * `fromArray` method.
  */
 #[CoversClass(HostConfig::class)]
 #[CoversClass(NetworkMode::class)]
@@ -29,7 +28,6 @@ final class HostConfigTest extends TestCase
     public function testValidHostConfig(): void
     {
         $networkMode = new NetworkMode('host');
-        $annotations = new stdClass();
         $annotations = ['key1' => 'value1', 'key2' => 'value2'];
 
         $hostConfig = new HostConfig($networkMode, $annotations);
@@ -39,13 +37,13 @@ final class HostConfigTest extends TestCase
     }
 
     /**
-     * Tests that the `fromStdClass` method correctly parses a valid `stdClass` object.
+     * Tests that the `fromArray` method correctly parses a valid associative array.
      *
-     * This test ensures that the `fromStdClass` method correctly converts a valid
-     * `stdClass` object into a `HostConfig` object, including parsing the `NetworkMode`
+     * This test ensures that the `fromArray` method correctly converts a valid
+     * associative array into a `HostConfig` object, including parsing the `NetworkMode`
      * and annotations.
      */
-    public function testFromStdClass(): void
+    public function testFromArray(): void
     {
         $array                                 = [];
         $array['NetworkMode']                  = 'container:12345';
@@ -63,12 +61,12 @@ final class HostConfigTest extends TestCase
     }
 
     /**
-     * Tests that the `fromStdClass` method throws an exception for an invalid `NetworkMode`.
+     * Tests that the `fromArray` method throws an exception for an invalid `NetworkMode`.
      *
      * This test ensures that an `InvalidArgumentException` is thrown when the
-     * `fromStdClass` method is called with an invalid `NetworkMode`.
+     * `fromArray` method is called with an invalid `NetworkMode`.
      */
-    public function testFromStdClassInvalidNetworkMode(): void
+    public function testFromArrayInvalidNetworkMode(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid network mode: invalid');
